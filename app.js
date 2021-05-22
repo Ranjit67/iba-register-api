@@ -77,6 +77,8 @@ app.post("/", async (req, res, next) => {
       info,
       profileImage,
       category,
+      gender,
+      phoneNumber,
     } = req.body;
     if (!email || !password)
       throw createError.BadRequest(
@@ -93,6 +95,8 @@ app.post("/", async (req, res, next) => {
       profileImage,
       category,
       role: "Mentor",
+      gender,
+      phoneNumber,
     };
     const saveUserData = await userData(setInUser, response.user.uid);
     if (!saveUserData) throw createError.Forbidden("User data is not save...");
