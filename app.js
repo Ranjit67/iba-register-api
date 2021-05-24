@@ -71,11 +71,11 @@ app.post("/", async (req, res, next) => {
     const {
       email,
       password,
-      fullName,
+      displayName,
       designation,
       about,
-      info,
-      profileImage,
+      information,
+      photoURL,
       category,
       gender,
       phoneNumber,
@@ -88,11 +88,11 @@ app.post("/", async (req, res, next) => {
     const setInUser = {
       email,
       password,
-      fullName,
+      displayName,
       designation,
       about,
-      info,
-      profileImage,
+      information,
+      photoURL,
       category,
       role: "Mentor",
       gender,
@@ -102,7 +102,7 @@ app.post("/", async (req, res, next) => {
     if (!saveUserData) throw createError.Forbidden("User data is not save...");
     const rawData = {
       about,
-      info,
+      information,
     };
     const saveInMentor = await mentor(rawData, response.user.uid);
     if (!saveInMentor)
